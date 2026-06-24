@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f3f4f6;
+            color: #2e2e2e;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        /* hero 模块 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.8rem 2.5rem 2.5rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e6e8ec;
+            margin-bottom: 2.5rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #3f4a57;
+            max-width: 750px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero .summary-tag {
+            display: inline-block;
+            background: #edf1f7;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #2c3e50;
+            border: 1px solid #dae0e8;
+            margin-top: 0.3rem;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 1.8rem 2rem 2rem;
+            border: 1px solid #e2e6ed;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.2s, transform 0.1s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            transform: translateY(-1px);
+        }
+
+        .card h2 {
+            font-size: 1.45rem;
+            font-weight: 530;
+            margin-bottom: 1rem;
+            color: #1f2937;
+            border-bottom: 1px solid #eff2f7;
+            padding-bottom: 0.6rem;
+        }
+
+        .card ul, .card p {
+            color: #41505e;
+            font-size: 0.98rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            padding: 0.3rem 0 0.3rem 1.6rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+
+        .card li::before {
+            content: "·";
+            font-weight: 700;
+            position: absolute;
+            left: 0.3rem;
+            color: #7e8b9c;
+        }
+
+        .card .note-muted {
+            display: block;
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: #6b7a8b;
+            border-left: 3px solid #dbe1ea;
+            padding-left: 0.9rem;
+        }
+
+        /* 使用建议 / 场景卡片 (全宽) */
+        .wide-card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 1.8rem 2rem 2rem;
+            border: 1px solid #e2e6ed;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+        }
+
+        .wide-card h2 {
+            font-size: 1.45rem;
+            font-weight: 530;
+            margin-bottom: 0.8rem;
+            color: #1f2937;
+        }
+
+        .wide-card p, .wide-card .scenario-item {
+            color: #41505e;
+            font-size: 0.98rem;
+        }
+
+        .scenario-item {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            margin: 1.2rem 0 0.3rem;
+        }
+
+        .scenario-item span {
+            background: #f0f3f8;
+            padding: 0.2rem 1.2rem 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            border: 1px solid #e0e5ef;
+            color: #314252;
+        }
+
+        /* 提示区块 */
+        .notice-strip {
+            background: #f9fafc;
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e7eaf1;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .notice-strip p {
+            color: #3e4c5c;
+            font-size: 0.98rem;
+            max-width: 75%;
+        }
+
+        .notice-strip .badge {
+            background: #eef2f9;
+            border-radius: 40px;
+            padding: 0.3rem 1.3rem;
+            font-size: 0.85rem;
+            color: #35465a;
+            border: 1px solid #d8dee9;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 1.5rem 2rem 1.8rem;
+            border: 1px solid #e2e6ed;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #1f2937;
+        }
+
+        .faq-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+
+        .faq-q {
+            font-weight: 530;
+            color: #2e3b4b;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #536170;
+            font-size: 0.95rem;
+            padding-left: 0.5rem;
+            border-left: 2px solid #e2e9f2;
+        }
+
+        .faq-a a {
+            color: #2c5282;
+            text-decoration: none;
+            border-bottom: 1px solid #cbd9ea;
+        }
+
+        .faq-a a:hover {
+            border-bottom-color: #1a365d;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            color: #6a7b8c;
+            font-size: 0.85rem;
+            border-top: 1px solid #dee3ec;
+            padding-top: 1.8rem;
+            margin-top: 0.8rem;
+        }
+
+        a {
+            color: #2b4e74;
+            text-decoration: none;
+            border-bottom: 1px solid #cbd9ea;
+            transition: border-color 0.1s;
+        }
+
+        a:hover {
+            border-bottom-color: #1f3a57;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            .hero {
+                padding: 1.8rem 1.3rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .card, .wide-card, .faq-mini, .notice-strip {
+                padding: 1.4rem 1.2rem;
+            }
+            .notice-strip {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+            .notice-strip p {
+                max-width: 100%;
+            }
+            .scenario-item {
+                gap: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- hero 摘要 -->
+        <div class="hero">
+            <h1>关于一个稳定的页面入口</h1>
+            <p>
+                这里记录的是对 <a href="https://fog-hth.com.cn">华体会</a> 这个站点的简要说明与使用指引。
+                不是什么复杂的平台介绍，只是一份平实的参考，帮助你更快了解它的基本面貌与适合场景。
+            </p>
+            <p>
+                从信息架构角度来看，这个站点提供了一种相对简洁的访问方式，没有冗余跳转。如果你希望直接了解其内容分布，下面的卡片或许能提供一点线索。
+            </p>
+            <span class="summary-tag">摘要 · 稳定入口 · 页面说明</span>
+        </div>
+
+        <!-- 亮点 & 特点 双卡片 -->
+        <div class="card-grid">
+            <!-- 卡片1：特点 -->
+            <div class="card">
+                <h2>页面特点</h2>
+                <ul>
+                    <li>结构偏轻量，没有过多加载层</li>
+                    <li>信息层级清晰，适合快速浏览主要模块</li>
+                    <li>在不同设备下保持基本可读性</li>
+                    <li>不依赖复杂脚本，核心内容直接呈现</li>
+                </ul>
+                <span class="note-muted">—— 并非功能密集型站点，更侧重内容直达。</span>
+            </div>
+            <!-- 卡片2：简要亮点 -->
+            <div class="card">
+                <h2>几处亮点</h2>
+                <ul>
+                    <li>页面响应速度尚可，首屏加载较轻</li>
+                    <li>导航归类直观，减少寻找成本</li>
+                    <li>配色克制，没有过度视觉干扰</li>
+                    <li>链接状态与反馈比较常规，容易适应</li>
+                </ul>
+                <span class="note-muted">—— 适合习惯简约交互的人。</span>
+            </div>
+        </div>
+
+        <!-- 使用建议 + 场景 (全宽) -->
+        <div class="wide-card">
+            <h2>使用建议 · 场景</h2>
+            <p>
+                如果你正好需要浏览一个内容条目清晰的页面，并且不想被过多弹窗或推荐流分散注意，<a href="https://fog-hth.com.cn">华体会</a> 可能是一个合适的选择。
+                它没有强推注册或复杂引导，你可以直接按分类查看。
+            </p>
+            <div class="scenario-item">
+                <span>快速检索信息</span>
+                <span>常规浏览</span>
+                <span>了解模块分类</span>
+                <span>轻度使用</span>
+            </div>
+            <p style="margin-top: 1rem;">
+                一些常见的使用方式：直接通过浏览器打开，在页面内根据标题导航；移动端缩放后依然可以阅读；不需要额外的插件或环境。
+            </p>
+        </div>
+
+        <!-- 可信但克制的访问说明 (notice strip) -->
+        <div class="notice-strip">
+            <p>
+                <strong>访问说明：</strong> 该站点为公开页面，不需要注册即可查看主要内容。请根据你自己的判断与网络环境决定访问方式。没有诱导点击或隐藏跳转，所有链接均可见。
+            </p>
+            <span class="badge">公开 · 无强制收集</span>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <h3>可能遇到的几个小问题</h3>
+            <div class="faq-item">
+                <span class="faq-q">Q: 页面加载偏慢怎么办？</span>
+                <span class="faq-a">先检查本地网络，也可以尝试刷新或稍后重试。页面本身没有大体积资源，通常与线路有关。</span>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">Q: 是否适配手机？</span>
+                <span class="faq-a">基础响应式布局，但某些按钮或链接在窄屏下间距偏小，建议双指缩放调整。你可以直接在手机浏览器中打开 <a href="https://fog-hth.com.cn">华体会</a> 看看效果。</span>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">Q: 内容更新频率？</span>
+                <span class="faq-a">没有固定更新承诺，但页面结构相对稳定，不会频繁大改。以实际显示为准。</span>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer-note">
+            页面说明 · 仅供了解参考
+        </div>
+    </div>
+</body>
+</html>
